@@ -1,1 +1,1 @@
-export * from './reposExplorer';
+export * from './ReposExplorer';

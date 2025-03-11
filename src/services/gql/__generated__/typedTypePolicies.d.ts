@@ -26,6 +26,12 @@ export type AcceptTopicSuggestionPayloadFieldPolicy = {
 	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
 	topic?: FieldPolicy<any> | FieldReadFunction<any>
 };
+export type AccessUserNamespaceRepositoryPayloadKeySpecifier = ('clientMutationId' | 'expiresAt' | 'repository' | AccessUserNamespaceRepositoryPayloadKeySpecifier)[];
+export type AccessUserNamespaceRepositoryPayloadFieldPolicy = {
+	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
+	expiresAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	repository?: FieldPolicy<any> | FieldReadFunction<any>
+};
 export type ActorKeySpecifier = ('avatarUrl' | 'login' | 'resourcePath' | 'url' | ActorKeySpecifier)[];
 export type ActorFieldPolicy = {
 	avatarUrl?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -168,6 +174,13 @@ export type AddedToProjectEventFieldPolicy = {
 	project?: FieldPolicy<any> | FieldReadFunction<any>,
 	projectCard?: FieldPolicy<any> | FieldReadFunction<any>,
 	projectColumnName?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type AnnouncementBannerKeySpecifier = ('createdAt' | 'expiresAt' | 'isUserDismissible' | 'message' | AnnouncementBannerKeySpecifier)[];
+export type AnnouncementBannerFieldPolicy = {
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	expiresAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	isUserDismissible?: FieldPolicy<any> | FieldReadFunction<any>,
+	message?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type AnnouncementBannerIKeySpecifier = ('announcement' | 'announcementCreatedAt' | 'announcementExpiresAt' | 'announcementUserDismissible' | AnnouncementBannerIKeySpecifier)[];
 export type AnnouncementBannerIFieldPolicy = {
@@ -1340,6 +1353,11 @@ export type CrossReferencedEventFieldPolicy = {
 	url?: FieldPolicy<any> | FieldReadFunction<any>,
 	willCloseTarget?: FieldPolicy<any> | FieldReadFunction<any>
 };
+export type CvssSeveritiesKeySpecifier = ('cvssV3' | 'cvssV4' | CvssSeveritiesKeySpecifier)[];
+export type CvssSeveritiesFieldPolicy = {
+	cvssV3?: FieldPolicy<any> | FieldReadFunction<any>,
+	cvssV4?: FieldPolicy<any> | FieldReadFunction<any>
+};
 export type DeclineTopicSuggestionPayloadKeySpecifier = ('clientMutationId' | 'topic' | DeclineTopicSuggestionPayloadKeySpecifier)[];
 export type DeclineTopicSuggestionPayloadFieldPolicy = {
 	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1500,12 +1518,13 @@ export type DependabotUpdateErrorFieldPolicy = {
 	errorType?: FieldPolicy<any> | FieldReadFunction<any>,
 	title?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type DependencyGraphDependencyKeySpecifier = ('hasDependencies' | 'packageLabel' | 'packageManager' | 'packageName' | 'repository' | 'requirements' | DependencyGraphDependencyKeySpecifier)[];
+export type DependencyGraphDependencyKeySpecifier = ('hasDependencies' | 'packageLabel' | 'packageManager' | 'packageName' | 'relationship' | 'repository' | 'requirements' | DependencyGraphDependencyKeySpecifier)[];
 export type DependencyGraphDependencyFieldPolicy = {
 	hasDependencies?: FieldPolicy<any> | FieldReadFunction<any>,
 	packageLabel?: FieldPolicy<any> | FieldReadFunction<any>,
 	packageManager?: FieldPolicy<any> | FieldReadFunction<any>,
 	packageName?: FieldPolicy<any> | FieldReadFunction<any>,
+	relationship?: FieldPolicy<any> | FieldReadFunction<any>,
 	repository?: FieldPolicy<any> | FieldReadFunction<any>,
 	requirements?: FieldPolicy<any> | FieldReadFunction<any>
 };
@@ -1944,9 +1963,10 @@ export type EnqueuePullRequestPayloadFieldPolicy = {
 	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
 	mergeQueueEntry?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type EnterpriseKeySpecifier = ('announcement' | 'announcementCreatedAt' | 'announcementExpiresAt' | 'announcementUserDismissible' | 'avatarUrl' | 'billingEmail' | 'billingInfo' | 'createdAt' | 'databaseId' | 'description' | 'descriptionHTML' | 'id' | 'location' | 'members' | 'name' | 'organizations' | 'ownerInfo' | 'readme' | 'readmeHTML' | 'resourcePath' | 'slug' | 'url' | 'viewerIsAdmin' | 'websiteUrl' | EnterpriseKeySpecifier)[];
+export type EnterpriseKeySpecifier = ('announcement' | 'announcementBanner' | 'announcementCreatedAt' | 'announcementExpiresAt' | 'announcementUserDismissible' | 'avatarUrl' | 'billingEmail' | 'billingInfo' | 'createdAt' | 'databaseId' | 'description' | 'descriptionHTML' | 'id' | 'location' | 'members' | 'name' | 'organizations' | 'ownerInfo' | 'readme' | 'readmeHTML' | 'resourcePath' | 'ruleset' | 'rulesets' | 'slug' | 'updatedAt' | 'url' | 'userNamespaceRepositories' | 'viewerIsAdmin' | 'websiteUrl' | EnterpriseKeySpecifier)[];
 export type EnterpriseFieldPolicy = {
 	announcement?: FieldPolicy<any> | FieldReadFunction<any>,
+	announcementBanner?: FieldPolicy<any> | FieldReadFunction<any>,
 	announcementCreatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
 	announcementExpiresAt?: FieldPolicy<any> | FieldReadFunction<any>,
 	announcementUserDismissible?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -1966,8 +1986,12 @@ export type EnterpriseFieldPolicy = {
 	readme?: FieldPolicy<any> | FieldReadFunction<any>,
 	readmeHTML?: FieldPolicy<any> | FieldReadFunction<any>,
 	resourcePath?: FieldPolicy<any> | FieldReadFunction<any>,
+	ruleset?: FieldPolicy<any> | FieldReadFunction<any>,
+	rulesets?: FieldPolicy<any> | FieldReadFunction<any>,
 	slug?: FieldPolicy<any> | FieldReadFunction<any>,
+	updatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
 	url?: FieldPolicy<any> | FieldReadFunction<any>,
+	userNamespaceRepositories?: FieldPolicy<any> | FieldReadFunction<any>,
 	viewerIsAdmin?: FieldPolicy<any> | FieldReadFunction<any>,
 	websiteUrl?: FieldPolicy<any> | FieldReadFunction<any>
 };
@@ -3013,12 +3037,6 @@ export type MarkFileAsViewedPayloadFieldPolicy = {
 	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
 	pullRequest?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MarkNotificationAsDonePayloadKeySpecifier = ('clientMutationId' | 'success' | 'viewer' | MarkNotificationAsDonePayloadKeySpecifier)[];
-export type MarkNotificationAsDonePayloadFieldPolicy = {
-	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
-	success?: FieldPolicy<any> | FieldReadFunction<any>,
-	viewer?: FieldPolicy<any> | FieldReadFunction<any>
-};
 export type MarkProjectV2AsTemplatePayloadKeySpecifier = ('clientMutationId' | 'projectV2' | MarkProjectV2AsTemplatePayloadKeySpecifier)[];
 export type MarkProjectV2AsTemplatePayloadFieldPolicy = {
 	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -3394,13 +3412,14 @@ export type MovedColumnsInProjectEventFieldPolicy = {
 	projectCard?: FieldPolicy<any> | FieldReadFunction<any>,
 	projectColumnName?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MutationKeySpecifier = ('abortQueuedMigrations' | 'abortRepositoryMigration' | 'acceptEnterpriseAdministratorInvitation' | 'acceptEnterpriseMemberInvitation' | 'acceptTopicSuggestion' | 'addAssigneesToAssignable' | 'addComment' | 'addDiscussionComment' | 'addDiscussionPollVote' | 'addEnterpriseOrganizationMember' | 'addEnterpriseSupportEntitlement' | 'addLabelsToLabelable' | 'addProjectCard' | 'addProjectColumn' | 'addProjectV2DraftIssue' | 'addProjectV2ItemById' | 'addPullRequestReview' | 'addPullRequestReviewComment' | 'addPullRequestReviewThread' | 'addPullRequestReviewThreadReply' | 'addReaction' | 'addStar' | 'addSubIssue' | 'addUpvote' | 'addVerifiableDomain' | 'approveDeployments' | 'approveVerifiableDomain' | 'archiveProjectV2Item' | 'archiveRepository' | 'cancelEnterpriseAdminInvitation' | 'cancelEnterpriseMemberInvitation' | 'cancelSponsorship' | 'changeUserStatus' | 'clearLabelsFromLabelable' | 'clearProjectV2ItemFieldValue' | 'cloneProject' | 'cloneTemplateRepository' | 'closeDiscussion' | 'closeIssue' | 'closePullRequest' | 'convertProjectCardNoteToIssue' | 'convertProjectV2DraftIssueItemToIssue' | 'convertPullRequestToDraft' | 'copyProjectV2' | 'createAttributionInvitation' | 'createBranchProtectionRule' | 'createCheckRun' | 'createCheckSuite' | 'createCommitOnBranch' | 'createDeployment' | 'createDeploymentStatus' | 'createDiscussion' | 'createEnterpriseOrganization' | 'createEnvironment' | 'createIpAllowListEntry' | 'createIssue' | 'createLabel' | 'createLinkedBranch' | 'createMigrationSource' | 'createProject' | 'createProjectV2' | 'createProjectV2Field' | 'createProjectV2StatusUpdate' | 'createPullRequest' | 'createRef' | 'createRepository' | 'createRepositoryRuleset' | 'createSponsorsListing' | 'createSponsorsTier' | 'createSponsorship' | 'createSponsorships' | 'createTeamDiscussion' | 'createTeamDiscussionComment' | 'createUserList' | 'declineTopicSuggestion' | 'deleteBranchProtectionRule' | 'deleteDeployment' | 'deleteDiscussion' | 'deleteDiscussionComment' | 'deleteEnvironment' | 'deleteIpAllowListEntry' | 'deleteIssue' | 'deleteIssueComment' | 'deleteLabel' | 'deleteLinkedBranch' | 'deletePackageVersion' | 'deleteProject' | 'deleteProjectCard' | 'deleteProjectColumn' | 'deleteProjectV2' | 'deleteProjectV2Field' | 'deleteProjectV2Item' | 'deleteProjectV2StatusUpdate' | 'deleteProjectV2Workflow' | 'deletePullRequestReview' | 'deletePullRequestReviewComment' | 'deleteRef' | 'deleteRepositoryRuleset' | 'deleteTeamDiscussion' | 'deleteTeamDiscussionComment' | 'deleteUserList' | 'deleteVerifiableDomain' | 'dequeuePullRequest' | 'disablePullRequestAutoMerge' | 'dismissPullRequestReview' | 'dismissRepositoryVulnerabilityAlert' | 'enablePullRequestAutoMerge' | 'enqueuePullRequest' | 'followOrganization' | 'followUser' | 'grantEnterpriseOrganizationsMigratorRole' | 'grantMigratorRole' | 'importProject' | 'inviteEnterpriseAdmin' | 'inviteEnterpriseMember' | 'linkProjectV2ToRepository' | 'linkProjectV2ToTeam' | 'linkRepositoryToProject' | 'lockLockable' | 'markDiscussionCommentAsAnswer' | 'markFileAsViewed' | 'markNotificationAsDone' | 'markProjectV2AsTemplate' | 'markPullRequestReadyForReview' | 'mergeBranch' | 'mergePullRequest' | 'minimizeComment' | 'moveProjectCard' | 'moveProjectColumn' | 'pinEnvironment' | 'pinIssue' | 'publishSponsorsTier' | 'regenerateEnterpriseIdentityProviderRecoveryCodes' | 'regenerateVerifiableDomainToken' | 'rejectDeployments' | 'removeAssigneesFromAssignable' | 'removeEnterpriseAdmin' | 'removeEnterpriseIdentityProvider' | 'removeEnterpriseMember' | 'removeEnterpriseOrganization' | 'removeEnterpriseSupportEntitlement' | 'removeLabelsFromLabelable' | 'removeOutsideCollaborator' | 'removeReaction' | 'removeStar' | 'removeSubIssue' | 'removeUpvote' | 'reopenDiscussion' | 'reopenIssue' | 'reopenPullRequest' | 'reorderEnvironment' | 'reprioritizeSubIssue' | 'requestReviews' | 'rerequestCheckSuite' | 'resolveReviewThread' | 'retireSponsorsTier' | 'revertPullRequest' | 'revokeEnterpriseOrganizationsMigratorRole' | 'revokeMigratorRole' | 'setEnterpriseIdentityProvider' | 'setOrganizationInteractionLimit' | 'setRepositoryInteractionLimit' | 'setUserInteractionLimit' | 'startOrganizationMigration' | 'startRepositoryMigration' | 'submitPullRequestReview' | 'transferEnterpriseOrganization' | 'transferIssue' | 'unarchiveProjectV2Item' | 'unarchiveRepository' | 'unfollowOrganization' | 'unfollowUser' | 'unlinkProjectV2FromRepository' | 'unlinkProjectV2FromTeam' | 'unlinkRepositoryFromProject' | 'unlockLockable' | 'unmarkDiscussionCommentAsAnswer' | 'unmarkFileAsViewed' | 'unmarkIssueAsDuplicate' | 'unmarkProjectV2AsTemplate' | 'unminimizeComment' | 'unpinIssue' | 'unresolveReviewThread' | 'unsubscribeFromNotifications' | 'updateBranchProtectionRule' | 'updateCheckRun' | 'updateCheckSuitePreferences' | 'updateDiscussion' | 'updateDiscussionComment' | 'updateEnterpriseAdministratorRole' | 'updateEnterpriseAllowPrivateRepositoryForkingSetting' | 'updateEnterpriseDefaultRepositoryPermissionSetting' | 'updateEnterpriseDeployKeySetting' | 'updateEnterpriseMembersCanChangeRepositoryVisibilitySetting' | 'updateEnterpriseMembersCanCreateRepositoriesSetting' | 'updateEnterpriseMembersCanDeleteIssuesSetting' | 'updateEnterpriseMembersCanDeleteRepositoriesSetting' | 'updateEnterpriseMembersCanInviteCollaboratorsSetting' | 'updateEnterpriseMembersCanMakePurchasesSetting' | 'updateEnterpriseMembersCanUpdateProtectedBranchesSetting' | 'updateEnterpriseMembersCanViewDependencyInsightsSetting' | 'updateEnterpriseOrganizationProjectsSetting' | 'updateEnterpriseOwnerOrganizationRole' | 'updateEnterpriseProfile' | 'updateEnterpriseRepositoryProjectsSetting' | 'updateEnterpriseTeamDiscussionsSetting' | 'updateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting' | 'updateEnterpriseTwoFactorAuthenticationRequiredSetting' | 'updateEnvironment' | 'updateIpAllowListEnabledSetting' | 'updateIpAllowListEntry' | 'updateIpAllowListForInstalledAppsEnabledSetting' | 'updateIssue' | 'updateIssueComment' | 'updateLabel' | 'updateNotificationRestrictionSetting' | 'updateOrganizationAllowPrivateRepositoryForkingSetting' | 'updateOrganizationWebCommitSignoffSetting' | 'updatePatreonSponsorability' | 'updateProject' | 'updateProjectCard' | 'updateProjectColumn' | 'updateProjectV2' | 'updateProjectV2Collaborators' | 'updateProjectV2DraftIssue' | 'updateProjectV2Field' | 'updateProjectV2ItemFieldValue' | 'updateProjectV2ItemPosition' | 'updateProjectV2StatusUpdate' | 'updatePullRequest' | 'updatePullRequestBranch' | 'updatePullRequestReview' | 'updatePullRequestReviewComment' | 'updateRef' | 'updateRefs' | 'updateRepository' | 'updateRepositoryRuleset' | 'updateRepositoryWebCommitSignoffSetting' | 'updateSponsorshipPreferences' | 'updateSubscription' | 'updateTeamDiscussion' | 'updateTeamDiscussionComment' | 'updateTeamReviewAssignment' | 'updateTeamsRepository' | 'updateTopics' | 'updateUserList' | 'updateUserListsForItem' | 'verifyVerifiableDomain' | MutationKeySpecifier)[];
+export type MutationKeySpecifier = ('abortQueuedMigrations' | 'abortRepositoryMigration' | 'acceptEnterpriseAdministratorInvitation' | 'acceptEnterpriseMemberInvitation' | 'acceptTopicSuggestion' | 'accessUserNamespaceRepository' | 'addAssigneesToAssignable' | 'addComment' | 'addDiscussionComment' | 'addDiscussionPollVote' | 'addEnterpriseOrganizationMember' | 'addEnterpriseSupportEntitlement' | 'addLabelsToLabelable' | 'addProjectCard' | 'addProjectColumn' | 'addProjectV2DraftIssue' | 'addProjectV2ItemById' | 'addPullRequestReview' | 'addPullRequestReviewComment' | 'addPullRequestReviewThread' | 'addPullRequestReviewThreadReply' | 'addReaction' | 'addStar' | 'addSubIssue' | 'addUpvote' | 'addVerifiableDomain' | 'approveDeployments' | 'approveVerifiableDomain' | 'archiveProjectV2Item' | 'archiveRepository' | 'cancelEnterpriseAdminInvitation' | 'cancelEnterpriseMemberInvitation' | 'cancelSponsorship' | 'changeUserStatus' | 'clearLabelsFromLabelable' | 'clearProjectV2ItemFieldValue' | 'cloneProject' | 'cloneTemplateRepository' | 'closeDiscussion' | 'closeIssue' | 'closePullRequest' | 'convertProjectCardNoteToIssue' | 'convertProjectV2DraftIssueItemToIssue' | 'convertPullRequestToDraft' | 'copyProjectV2' | 'createAttributionInvitation' | 'createBranchProtectionRule' | 'createCheckRun' | 'createCheckSuite' | 'createCommitOnBranch' | 'createDeployment' | 'createDeploymentStatus' | 'createDiscussion' | 'createEnterpriseOrganization' | 'createEnvironment' | 'createIpAllowListEntry' | 'createIssue' | 'createLabel' | 'createLinkedBranch' | 'createMigrationSource' | 'createProject' | 'createProjectV2' | 'createProjectV2Field' | 'createProjectV2StatusUpdate' | 'createPullRequest' | 'createRef' | 'createRepository' | 'createRepositoryRuleset' | 'createSponsorsListing' | 'createSponsorsTier' | 'createSponsorship' | 'createSponsorships' | 'createTeamDiscussion' | 'createTeamDiscussionComment' | 'createUserList' | 'declineTopicSuggestion' | 'deleteBranchProtectionRule' | 'deleteDeployment' | 'deleteDiscussion' | 'deleteDiscussionComment' | 'deleteEnvironment' | 'deleteIpAllowListEntry' | 'deleteIssue' | 'deleteIssueComment' | 'deleteLabel' | 'deleteLinkedBranch' | 'deletePackageVersion' | 'deleteProject' | 'deleteProjectCard' | 'deleteProjectColumn' | 'deleteProjectV2' | 'deleteProjectV2Field' | 'deleteProjectV2Item' | 'deleteProjectV2StatusUpdate' | 'deleteProjectV2Workflow' | 'deletePullRequestReview' | 'deletePullRequestReviewComment' | 'deleteRef' | 'deleteRepositoryRuleset' | 'deleteTeamDiscussion' | 'deleteTeamDiscussionComment' | 'deleteUserList' | 'deleteVerifiableDomain' | 'dequeuePullRequest' | 'disablePullRequestAutoMerge' | 'dismissPullRequestReview' | 'dismissRepositoryVulnerabilityAlert' | 'enablePullRequestAutoMerge' | 'enqueuePullRequest' | 'followOrganization' | 'followUser' | 'grantEnterpriseOrganizationsMigratorRole' | 'grantMigratorRole' | 'importProject' | 'inviteEnterpriseAdmin' | 'inviteEnterpriseMember' | 'linkProjectV2ToRepository' | 'linkProjectV2ToTeam' | 'linkRepositoryToProject' | 'lockLockable' | 'markDiscussionCommentAsAnswer' | 'markFileAsViewed' | 'markProjectV2AsTemplate' | 'markPullRequestReadyForReview' | 'mergeBranch' | 'mergePullRequest' | 'minimizeComment' | 'moveProjectCard' | 'moveProjectColumn' | 'pinEnvironment' | 'pinIssue' | 'publishSponsorsTier' | 'regenerateEnterpriseIdentityProviderRecoveryCodes' | 'regenerateVerifiableDomainToken' | 'rejectDeployments' | 'removeAssigneesFromAssignable' | 'removeEnterpriseAdmin' | 'removeEnterpriseIdentityProvider' | 'removeEnterpriseMember' | 'removeEnterpriseOrganization' | 'removeEnterpriseSupportEntitlement' | 'removeLabelsFromLabelable' | 'removeOutsideCollaborator' | 'removeReaction' | 'removeStar' | 'removeSubIssue' | 'removeUpvote' | 'reopenDiscussion' | 'reopenIssue' | 'reopenPullRequest' | 'reorderEnvironment' | 'reprioritizeSubIssue' | 'requestReviews' | 'rerequestCheckSuite' | 'resolveReviewThread' | 'retireSponsorsTier' | 'revertPullRequest' | 'revokeEnterpriseOrganizationsMigratorRole' | 'revokeMigratorRole' | 'setEnterpriseIdentityProvider' | 'setOrganizationInteractionLimit' | 'setRepositoryInteractionLimit' | 'setUserInteractionLimit' | 'startOrganizationMigration' | 'startRepositoryMigration' | 'submitPullRequestReview' | 'transferEnterpriseOrganization' | 'transferIssue' | 'unarchiveProjectV2Item' | 'unarchiveRepository' | 'unfollowOrganization' | 'unfollowUser' | 'unlinkProjectV2FromRepository' | 'unlinkProjectV2FromTeam' | 'unlinkRepositoryFromProject' | 'unlockLockable' | 'unmarkDiscussionCommentAsAnswer' | 'unmarkFileAsViewed' | 'unmarkIssueAsDuplicate' | 'unmarkProjectV2AsTemplate' | 'unminimizeComment' | 'unpinIssue' | 'unresolveReviewThread' | 'updateBranchProtectionRule' | 'updateCheckRun' | 'updateCheckSuitePreferences' | 'updateDiscussion' | 'updateDiscussionComment' | 'updateEnterpriseAdministratorRole' | 'updateEnterpriseAllowPrivateRepositoryForkingSetting' | 'updateEnterpriseDefaultRepositoryPermissionSetting' | 'updateEnterpriseDeployKeySetting' | 'updateEnterpriseMembersCanChangeRepositoryVisibilitySetting' | 'updateEnterpriseMembersCanCreateRepositoriesSetting' | 'updateEnterpriseMembersCanDeleteIssuesSetting' | 'updateEnterpriseMembersCanDeleteRepositoriesSetting' | 'updateEnterpriseMembersCanInviteCollaboratorsSetting' | 'updateEnterpriseMembersCanMakePurchasesSetting' | 'updateEnterpriseMembersCanUpdateProtectedBranchesSetting' | 'updateEnterpriseMembersCanViewDependencyInsightsSetting' | 'updateEnterpriseOrganizationProjectsSetting' | 'updateEnterpriseOwnerOrganizationRole' | 'updateEnterpriseProfile' | 'updateEnterpriseRepositoryProjectsSetting' | 'updateEnterpriseTeamDiscussionsSetting' | 'updateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting' | 'updateEnterpriseTwoFactorAuthenticationRequiredSetting' | 'updateEnvironment' | 'updateIpAllowListEnabledSetting' | 'updateIpAllowListEntry' | 'updateIpAllowListForInstalledAppsEnabledSetting' | 'updateIssue' | 'updateIssueComment' | 'updateLabel' | 'updateNotificationRestrictionSetting' | 'updateOrganizationAllowPrivateRepositoryForkingSetting' | 'updateOrganizationWebCommitSignoffSetting' | 'updatePatreonSponsorability' | 'updateProject' | 'updateProjectCard' | 'updateProjectColumn' | 'updateProjectV2' | 'updateProjectV2Collaborators' | 'updateProjectV2DraftIssue' | 'updateProjectV2Field' | 'updateProjectV2ItemFieldValue' | 'updateProjectV2ItemPosition' | 'updateProjectV2StatusUpdate' | 'updatePullRequest' | 'updatePullRequestBranch' | 'updatePullRequestReview' | 'updatePullRequestReviewComment' | 'updateRef' | 'updateRefs' | 'updateRepository' | 'updateRepositoryRuleset' | 'updateRepositoryWebCommitSignoffSetting' | 'updateSponsorshipPreferences' | 'updateSubscription' | 'updateTeamDiscussion' | 'updateTeamDiscussionComment' | 'updateTeamReviewAssignment' | 'updateTeamsRepository' | 'updateTopics' | 'updateUserList' | 'updateUserListsForItem' | 'verifyVerifiableDomain' | MutationKeySpecifier)[];
 export type MutationFieldPolicy = {
 	abortQueuedMigrations?: FieldPolicy<any> | FieldReadFunction<any>,
 	abortRepositoryMigration?: FieldPolicy<any> | FieldReadFunction<any>,
 	acceptEnterpriseAdministratorInvitation?: FieldPolicy<any> | FieldReadFunction<any>,
 	acceptEnterpriseMemberInvitation?: FieldPolicy<any> | FieldReadFunction<any>,
 	acceptTopicSuggestion?: FieldPolicy<any> | FieldReadFunction<any>,
+	accessUserNamespaceRepository?: FieldPolicy<any> | FieldReadFunction<any>,
 	addAssigneesToAssignable?: FieldPolicy<any> | FieldReadFunction<any>,
 	addComment?: FieldPolicy<any> | FieldReadFunction<any>,
 	addDiscussionComment?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -3517,7 +3536,6 @@ export type MutationFieldPolicy = {
 	lockLockable?: FieldPolicy<any> | FieldReadFunction<any>,
 	markDiscussionCommentAsAnswer?: FieldPolicy<any> | FieldReadFunction<any>,
 	markFileAsViewed?: FieldPolicy<any> | FieldReadFunction<any>,
-	markNotificationAsDone?: FieldPolicy<any> | FieldReadFunction<any>,
 	markProjectV2AsTemplate?: FieldPolicy<any> | FieldReadFunction<any>,
 	markPullRequestReadyForReview?: FieldPolicy<any> | FieldReadFunction<any>,
 	mergeBranch?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -3579,7 +3597,6 @@ export type MutationFieldPolicy = {
 	unminimizeComment?: FieldPolicy<any> | FieldReadFunction<any>,
 	unpinIssue?: FieldPolicy<any> | FieldReadFunction<any>,
 	unresolveReviewThread?: FieldPolicy<any> | FieldReadFunction<any>,
-	unsubscribeFromNotifications?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateBranchProtectionRule?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateCheckRun?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateCheckSuitePreferences?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -4358,9 +4375,10 @@ export type OrgUpdateMemberRepositoryInvitationPermissionAuditEntryFieldPolicy =
 	userResourcePath?: FieldPolicy<any> | FieldReadFunction<any>,
 	userUrl?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type OrganizationKeySpecifier = ('announcement' | 'announcementCreatedAt' | 'announcementExpiresAt' | 'announcementUserDismissible' | 'anyPinnableItems' | 'archivedAt' | 'auditLog' | 'avatarUrl' | 'createdAt' | 'databaseId' | 'description' | 'descriptionHTML' | 'domains' | 'email' | 'enterpriseOwners' | 'estimatedNextSponsorsPayoutInCents' | 'hasSponsorsListing' | 'id' | 'interactionAbility' | 'ipAllowListEnabledSetting' | 'ipAllowListEntries' | 'ipAllowListForInstalledAppsEnabledSetting' | 'isSponsoredBy' | 'isSponsoringViewer' | 'isVerified' | 'itemShowcase' | 'lifetimeReceivedSponsorshipValues' | 'location' | 'login' | 'mannequins' | 'memberStatuses' | 'membersCanForkPrivateRepositories' | 'membersWithRole' | 'monthlyEstimatedSponsorsIncomeInCents' | 'name' | 'newTeamResourcePath' | 'newTeamUrl' | 'notificationDeliveryRestrictionEnabledSetting' | 'organizationBillingEmail' | 'packages' | 'pendingMembers' | 'pinnableItems' | 'pinnedItems' | 'pinnedItemsRemaining' | 'project' | 'projectV2' | 'projects' | 'projectsResourcePath' | 'projectsUrl' | 'projectsV2' | 'recentProjects' | 'repositories' | 'repository' | 'repositoryDiscussionComments' | 'repositoryDiscussions' | 'repositoryMigrations' | 'requiresTwoFactorAuthentication' | 'resourcePath' | 'ruleset' | 'rulesets' | 'samlIdentityProvider' | 'sponsoring' | 'sponsors' | 'sponsorsActivities' | 'sponsorsListing' | 'sponsorshipForViewerAsSponsor' | 'sponsorshipForViewerAsSponsorable' | 'sponsorshipNewsletters' | 'sponsorshipsAsMaintainer' | 'sponsorshipsAsSponsor' | 'team' | 'teams' | 'teamsResourcePath' | 'teamsUrl' | 'totalSponsorshipAmountAsSponsorInCents' | 'twitterUsername' | 'updatedAt' | 'url' | 'viewerCanAdminister' | 'viewerCanChangePinnedItems' | 'viewerCanCreateProjects' | 'viewerCanCreateRepositories' | 'viewerCanCreateTeams' | 'viewerCanSponsor' | 'viewerIsAMember' | 'viewerIsFollowing' | 'viewerIsSponsoring' | 'webCommitSignoffRequired' | 'websiteUrl' | OrganizationKeySpecifier)[];
+export type OrganizationKeySpecifier = ('announcement' | 'announcementBanner' | 'announcementCreatedAt' | 'announcementExpiresAt' | 'announcementUserDismissible' | 'anyPinnableItems' | 'archivedAt' | 'auditLog' | 'avatarUrl' | 'createdAt' | 'databaseId' | 'description' | 'descriptionHTML' | 'domains' | 'email' | 'enterpriseOwners' | 'estimatedNextSponsorsPayoutInCents' | 'hasSponsorsListing' | 'id' | 'interactionAbility' | 'ipAllowListEnabledSetting' | 'ipAllowListEntries' | 'ipAllowListForInstalledAppsEnabledSetting' | 'isSponsoredBy' | 'isSponsoringViewer' | 'isVerified' | 'itemShowcase' | 'lifetimeReceivedSponsorshipValues' | 'location' | 'login' | 'mannequins' | 'memberStatuses' | 'membersCanForkPrivateRepositories' | 'membersWithRole' | 'monthlyEstimatedSponsorsIncomeInCents' | 'name' | 'newTeamResourcePath' | 'newTeamUrl' | 'notificationDeliveryRestrictionEnabledSetting' | 'organizationBillingEmail' | 'packages' | 'pendingMembers' | 'pinnableItems' | 'pinnedItems' | 'pinnedItemsRemaining' | 'project' | 'projectV2' | 'projects' | 'projectsResourcePath' | 'projectsUrl' | 'projectsV2' | 'recentProjects' | 'repositories' | 'repository' | 'repositoryDiscussionComments' | 'repositoryDiscussions' | 'repositoryMigrations' | 'requiresTwoFactorAuthentication' | 'resourcePath' | 'ruleset' | 'rulesets' | 'samlIdentityProvider' | 'sponsoring' | 'sponsors' | 'sponsorsActivities' | 'sponsorsListing' | 'sponsorshipForViewerAsSponsor' | 'sponsorshipForViewerAsSponsorable' | 'sponsorshipNewsletters' | 'sponsorshipsAsMaintainer' | 'sponsorshipsAsSponsor' | 'team' | 'teams' | 'teamsResourcePath' | 'teamsUrl' | 'totalSponsorshipAmountAsSponsorInCents' | 'twitterUsername' | 'updatedAt' | 'url' | 'viewerCanAdminister' | 'viewerCanChangePinnedItems' | 'viewerCanCreateProjects' | 'viewerCanCreateRepositories' | 'viewerCanCreateTeams' | 'viewerCanSponsor' | 'viewerIsAMember' | 'viewerIsFollowing' | 'viewerIsSponsoring' | 'webCommitSignoffRequired' | 'websiteUrl' | OrganizationKeySpecifier)[];
 export type OrganizationFieldPolicy = {
 	announcement?: FieldPolicy<any> | FieldReadFunction<any>,
+	announcementBanner?: FieldPolicy<any> | FieldReadFunction<any>,
 	announcementCreatedAt?: FieldPolicy<any> | FieldReadFunction<any>,
 	announcementExpiresAt?: FieldPolicy<any> | FieldReadFunction<any>,
 	announcementUserDismissible?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -4670,6 +4688,20 @@ export type PageInfoFieldPolicy = {
 	hasNextPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	hasPreviousPage?: FieldPolicy<any> | FieldReadFunction<any>,
 	startCursor?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ParentIssueAddedEventKeySpecifier = ('actor' | 'createdAt' | 'id' | 'parent' | ParentIssueAddedEventKeySpecifier)[];
+export type ParentIssueAddedEventFieldPolicy = {
+	actor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	parent?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type ParentIssueRemovedEventKeySpecifier = ('actor' | 'createdAt' | 'id' | 'parent' | ParentIssueRemovedEventKeySpecifier)[];
+export type ParentIssueRemovedEventFieldPolicy = {
+	actor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	parent?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type PermissionSourceKeySpecifier = ('organization' | 'permission' | 'roleName' | 'source' | PermissionSourceKeySpecifier)[];
 export type PermissionSourceFieldPolicy = {
@@ -5587,8 +5619,9 @@ export type PullRequestEdgeFieldPolicy = {
 	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
 	node?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type PullRequestParametersKeySpecifier = ('dismissStaleReviewsOnPush' | 'requireCodeOwnerReview' | 'requireLastPushApproval' | 'requiredApprovingReviewCount' | 'requiredReviewThreadResolution' | PullRequestParametersKeySpecifier)[];
+export type PullRequestParametersKeySpecifier = ('allowedMergeMethods' | 'dismissStaleReviewsOnPush' | 'requireCodeOwnerReview' | 'requireLastPushApproval' | 'requiredApprovingReviewCount' | 'requiredReviewThreadResolution' | PullRequestParametersKeySpecifier)[];
 export type PullRequestParametersFieldPolicy = {
+	allowedMergeMethods?: FieldPolicy<any> | FieldReadFunction<any>,
 	dismissStaleReviewsOnPush?: FieldPolicy<any> | FieldReadFunction<any>,
 	requireCodeOwnerReview?: FieldPolicy<any> | FieldReadFunction<any>,
 	requireLastPushApproval?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -7167,11 +7200,12 @@ export type RepositoryVisibilityChangeEnableAuditEntryFieldPolicy = {
 	userResourcePath?: FieldPolicy<any> | FieldReadFunction<any>,
 	userUrl?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type RepositoryVulnerabilityAlertKeySpecifier = ('autoDismissedAt' | 'createdAt' | 'dependabotUpdate' | 'dependencyScope' | 'dismissComment' | 'dismissReason' | 'dismissedAt' | 'dismisser' | 'fixedAt' | 'id' | 'number' | 'repository' | 'securityAdvisory' | 'securityVulnerability' | 'state' | 'vulnerableManifestFilename' | 'vulnerableManifestPath' | 'vulnerableRequirements' | RepositoryVulnerabilityAlertKeySpecifier)[];
+export type RepositoryVulnerabilityAlertKeySpecifier = ('autoDismissedAt' | 'createdAt' | 'dependabotUpdate' | 'dependencyRelationship' | 'dependencyScope' | 'dismissComment' | 'dismissReason' | 'dismissedAt' | 'dismisser' | 'fixedAt' | 'id' | 'number' | 'repository' | 'securityAdvisory' | 'securityVulnerability' | 'state' | 'vulnerableManifestFilename' | 'vulnerableManifestPath' | 'vulnerableRequirements' | RepositoryVulnerabilityAlertKeySpecifier)[];
 export type RepositoryVulnerabilityAlertFieldPolicy = {
 	autoDismissedAt?: FieldPolicy<any> | FieldReadFunction<any>,
 	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
 	dependabotUpdate?: FieldPolicy<any> | FieldReadFunction<any>,
+	dependencyRelationship?: FieldPolicy<any> | FieldReadFunction<any>,
 	dependencyScope?: FieldPolicy<any> | FieldReadFunction<any>,
 	dismissComment?: FieldPolicy<any> | FieldReadFunction<any>,
 	dismissReason?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -7396,10 +7430,11 @@ export type SearchResultItemEdgeFieldPolicy = {
 	node?: FieldPolicy<any> | FieldReadFunction<any>,
 	textMatches?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type SecurityAdvisoryKeySpecifier = ('classification' | 'cvss' | 'cwes' | 'databaseId' | 'description' | 'epss' | 'ghsaId' | 'id' | 'identifiers' | 'notificationsPermalink' | 'origin' | 'permalink' | 'publishedAt' | 'references' | 'severity' | 'summary' | 'updatedAt' | 'vulnerabilities' | 'withdrawnAt' | SecurityAdvisoryKeySpecifier)[];
+export type SecurityAdvisoryKeySpecifier = ('classification' | 'cvss' | 'cvssSeverities' | 'cwes' | 'databaseId' | 'description' | 'epss' | 'ghsaId' | 'id' | 'identifiers' | 'notificationsPermalink' | 'origin' | 'permalink' | 'publishedAt' | 'references' | 'severity' | 'summary' | 'updatedAt' | 'vulnerabilities' | 'withdrawnAt' | SecurityAdvisoryKeySpecifier)[];
 export type SecurityAdvisoryFieldPolicy = {
 	classification?: FieldPolicy<any> | FieldReadFunction<any>,
 	cvss?: FieldPolicy<any> | FieldReadFunction<any>,
+	cvssSeverities?: FieldPolicy<any> | FieldReadFunction<any>,
 	cwes?: FieldPolicy<any> | FieldReadFunction<any>,
 	databaseId?: FieldPolicy<any> | FieldReadFunction<any>,
 	description?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -7857,6 +7892,20 @@ export type StripeConnectAccountFieldPolicy = {
 	isActive?: FieldPolicy<any> | FieldReadFunction<any>,
 	sponsorsListing?: FieldPolicy<any> | FieldReadFunction<any>,
 	stripeDashboardUrl?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SubIssueAddedEventKeySpecifier = ('actor' | 'createdAt' | 'id' | 'subIssue' | SubIssueAddedEventKeySpecifier)[];
+export type SubIssueAddedEventFieldPolicy = {
+	actor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	subIssue?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type SubIssueRemovedEventKeySpecifier = ('actor' | 'createdAt' | 'id' | 'subIssue' | SubIssueRemovedEventKeySpecifier)[];
+export type SubIssueRemovedEventFieldPolicy = {
+	actor?: FieldPolicy<any> | FieldReadFunction<any>,
+	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	subIssue?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type SubIssuesSummaryKeySpecifier = ('completed' | 'percentCompleted' | 'total' | SubIssuesSummaryKeySpecifier)[];
 export type SubIssuesSummaryFieldPolicy = {
@@ -8476,11 +8525,6 @@ export type UnresolveReviewThreadPayloadFieldPolicy = {
 	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
 	thread?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type UnsubscribeFromNotificationsPayloadKeySpecifier = ('clientMutationId' | 'success' | UnsubscribeFromNotificationsPayloadKeySpecifier)[];
-export type UnsubscribeFromNotificationsPayloadFieldPolicy = {
-	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
-	success?: FieldPolicy<any> | FieldReadFunction<any>
-};
 export type UnsubscribedEventKeySpecifier = ('actor' | 'createdAt' | 'id' | 'subscribable' | UnsubscribedEventKeySpecifier)[];
 export type UnsubscribedEventFieldPolicy = {
 	actor?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -9028,6 +9072,25 @@ export type UserListSuggestionFieldPolicy = {
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	name?: FieldPolicy<any> | FieldReadFunction<any>
 };
+export type UserNamespaceRepositoryKeySpecifier = ('id' | 'name' | 'nameWithOwner' | 'owner' | UserNamespaceRepositoryKeySpecifier)[];
+export type UserNamespaceRepositoryFieldPolicy = {
+	id?: FieldPolicy<any> | FieldReadFunction<any>,
+	name?: FieldPolicy<any> | FieldReadFunction<any>,
+	nameWithOwner?: FieldPolicy<any> | FieldReadFunction<any>,
+	owner?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UserNamespaceRepositoryConnectionKeySpecifier = ('edges' | 'nodes' | 'pageInfo' | 'totalCount' | UserNamespaceRepositoryConnectionKeySpecifier)[];
+export type UserNamespaceRepositoryConnectionFieldPolicy = {
+	edges?: FieldPolicy<any> | FieldReadFunction<any>,
+	nodes?: FieldPolicy<any> | FieldReadFunction<any>,
+	pageInfo?: FieldPolicy<any> | FieldReadFunction<any>,
+	totalCount?: FieldPolicy<any> | FieldReadFunction<any>
+};
+export type UserNamespaceRepositoryEdgeKeySpecifier = ('cursor' | 'node' | UserNamespaceRepositoryEdgeKeySpecifier)[];
+export type UserNamespaceRepositoryEdgeFieldPolicy = {
+	cursor?: FieldPolicy<any> | FieldReadFunction<any>,
+	node?: FieldPolicy<any> | FieldReadFunction<any>
+};
 export type UserStatusKeySpecifier = ('createdAt' | 'emoji' | 'emojiHTML' | 'expiresAt' | 'id' | 'indicatesLimitedAvailability' | 'message' | 'organization' | 'updatedAt' | 'user' | UserStatusKeySpecifier)[];
 export type UserStatusFieldPolicy = {
 	createdAt?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -9185,6 +9248,10 @@ export type StrictTypedTypePolicies = {
 		keyFields?: false | AcceptTopicSuggestionPayloadKeySpecifier | (() => undefined | AcceptTopicSuggestionPayloadKeySpecifier),
 		fields?: AcceptTopicSuggestionPayloadFieldPolicy,
 	},
+	AccessUserNamespaceRepositoryPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AccessUserNamespaceRepositoryPayloadKeySpecifier | (() => undefined | AccessUserNamespaceRepositoryPayloadKeySpecifier),
+		fields?: AccessUserNamespaceRepositoryPayloadFieldPolicy,
+	},
 	Actor?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ActorKeySpecifier | (() => undefined | ActorKeySpecifier),
 		fields?: ActorFieldPolicy,
@@ -9280,6 +9347,10 @@ export type StrictTypedTypePolicies = {
 	AddedToProjectEvent?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AddedToProjectEventKeySpecifier | (() => undefined | AddedToProjectEventKeySpecifier),
 		fields?: AddedToProjectEventFieldPolicy,
+	},
+	AnnouncementBanner?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | AnnouncementBannerKeySpecifier | (() => undefined | AnnouncementBannerKeySpecifier),
+		fields?: AnnouncementBannerFieldPolicy,
 	},
 	AnnouncementBannerI?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | AnnouncementBannerIKeySpecifier | (() => undefined | AnnouncementBannerIKeySpecifier),
@@ -9876,6 +9947,10 @@ export type StrictTypedTypePolicies = {
 	CrossReferencedEvent?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CrossReferencedEventKeySpecifier | (() => undefined | CrossReferencedEventKeySpecifier),
 		fields?: CrossReferencedEventFieldPolicy,
+	},
+	CvssSeverities?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | CvssSeveritiesKeySpecifier | (() => undefined | CvssSeveritiesKeySpecifier),
+		fields?: CvssSeveritiesFieldPolicy,
 	},
 	DeclineTopicSuggestionPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | DeclineTopicSuggestionPayloadKeySpecifier | (() => undefined | DeclineTopicSuggestionPayloadKeySpecifier),
@@ -10701,10 +10776,6 @@ export type StrictTypedTypePolicies = {
 		keyFields?: false | MarkFileAsViewedPayloadKeySpecifier | (() => undefined | MarkFileAsViewedPayloadKeySpecifier),
 		fields?: MarkFileAsViewedPayloadFieldPolicy,
 	},
-	MarkNotificationAsDonePayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
-		keyFields?: false | MarkNotificationAsDonePayloadKeySpecifier | (() => undefined | MarkNotificationAsDonePayloadKeySpecifier),
-		fields?: MarkNotificationAsDonePayloadFieldPolicy,
-	},
 	MarkProjectV2AsTemplatePayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | MarkProjectV2AsTemplatePayloadKeySpecifier | (() => undefined | MarkProjectV2AsTemplatePayloadKeySpecifier),
 		fields?: MarkProjectV2AsTemplatePayloadFieldPolicy,
@@ -11112,6 +11183,14 @@ export type StrictTypedTypePolicies = {
 	PageInfo?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | PageInfoKeySpecifier | (() => undefined | PageInfoKeySpecifier),
 		fields?: PageInfoFieldPolicy,
+	},
+	ParentIssueAddedEvent?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ParentIssueAddedEventKeySpecifier | (() => undefined | ParentIssueAddedEventKeySpecifier),
+		fields?: ParentIssueAddedEventFieldPolicy,
+	},
+	ParentIssueRemovedEvent?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | ParentIssueRemovedEventKeySpecifier | (() => undefined | ParentIssueRemovedEventKeySpecifier),
+		fields?: ParentIssueRemovedEventFieldPolicy,
 	},
 	PermissionSource?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | PermissionSourceKeySpecifier | (() => undefined | PermissionSourceKeySpecifier),
@@ -12373,6 +12452,14 @@ export type StrictTypedTypePolicies = {
 		keyFields?: false | StripeConnectAccountKeySpecifier | (() => undefined | StripeConnectAccountKeySpecifier),
 		fields?: StripeConnectAccountFieldPolicy,
 	},
+	SubIssueAddedEvent?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SubIssueAddedEventKeySpecifier | (() => undefined | SubIssueAddedEventKeySpecifier),
+		fields?: SubIssueAddedEventFieldPolicy,
+	},
+	SubIssueRemovedEvent?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | SubIssueRemovedEventKeySpecifier | (() => undefined | SubIssueRemovedEventKeySpecifier),
+		fields?: SubIssueRemovedEventFieldPolicy,
+	},
 	SubIssuesSummary?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | SubIssuesSummaryKeySpecifier | (() => undefined | SubIssuesSummaryKeySpecifier),
 		fields?: SubIssuesSummaryFieldPolicy,
@@ -12616,10 +12703,6 @@ export type StrictTypedTypePolicies = {
 	UnresolveReviewThreadPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UnresolveReviewThreadPayloadKeySpecifier | (() => undefined | UnresolveReviewThreadPayloadKeySpecifier),
 		fields?: UnresolveReviewThreadPayloadFieldPolicy,
-	},
-	UnsubscribeFromNotificationsPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
-		keyFields?: false | UnsubscribeFromNotificationsPayloadKeySpecifier | (() => undefined | UnsubscribeFromNotificationsPayloadKeySpecifier),
-		fields?: UnsubscribeFromNotificationsPayloadFieldPolicy,
 	},
 	UnsubscribedEvent?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UnsubscribedEventKeySpecifier | (() => undefined | UnsubscribedEventKeySpecifier),
@@ -12944,6 +13027,18 @@ export type StrictTypedTypePolicies = {
 	UserListSuggestion?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UserListSuggestionKeySpecifier | (() => undefined | UserListSuggestionKeySpecifier),
 		fields?: UserListSuggestionFieldPolicy,
+	},
+	UserNamespaceRepository?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserNamespaceRepositoryKeySpecifier | (() => undefined | UserNamespaceRepositoryKeySpecifier),
+		fields?: UserNamespaceRepositoryFieldPolicy,
+	},
+	UserNamespaceRepositoryConnection?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserNamespaceRepositoryConnectionKeySpecifier | (() => undefined | UserNamespaceRepositoryConnectionKeySpecifier),
+		fields?: UserNamespaceRepositoryConnectionFieldPolicy,
+	},
+	UserNamespaceRepositoryEdge?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | UserNamespaceRepositoryEdgeKeySpecifier | (() => undefined | UserNamespaceRepositoryEdgeKeySpecifier),
+		fields?: UserNamespaceRepositoryEdgeFieldPolicy,
 	},
 	UserStatus?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | UserStatusKeySpecifier | (() => undefined | UserStatusKeySpecifier),

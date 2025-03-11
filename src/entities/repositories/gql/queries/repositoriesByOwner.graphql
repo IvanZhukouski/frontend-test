@@ -1,10 +1,22 @@
 # import Repository from '../fragments/repository.graphql'
 
-query repositoriesByOwner($login: String!) {
+query repositoriesByOwner(
+  $login: String!,
+  $first: Int!,
+  $after: String
+  $before: String
+) {
   repositoryOwner(login: $login) {
-    repositories(first: 10) {
+    repositories(first: $first, after: $after, before: $before) {
+      totalCount
       nodes {
         ...Repository
+      }
+      pageInfo {
+        endCursor
+        startCursor
+        hasNextPage
+        hasPreviousPage
       }
     }
   }
