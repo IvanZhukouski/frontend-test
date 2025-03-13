@@ -1,4 +1,4 @@
-import { cn } from '@/shared/lib/utils';
+import { cn } from '@/shared/lib';
 
 export const Spinner = ({ className }: React.ComponentProps<'svg'>) => (
   <svg
