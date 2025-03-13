@@ -1,12 +1,12 @@
 'use client';
 import { RepoCard } from '@/entities/repositories';
 import { useRepositoriesByOwnerQuery } from '@/entities/repositories/gql/queries/repositoriesByOwner.graphql';
-import { Input } from '@/shared/components/ui/Input';
-import { Spinner } from '@/shared/components/ui/Spinner';
+import { InfiniteScrollComponent } from '@/shared/components';
+import { Input } from '@/shared/components';
+import { Spinner } from '@/shared/components';
 import { useDebounceValue } from '@/shared/hooks';
-import { cn } from '@/shared/lib/utils';
+import { cn } from '@/shared/lib';
 import { useState } from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
 
 export const ReposExplorer = () => {
   const [login, setLogin] = useState('');
@@ -89,21 +89,31 @@ export const ReposExplorer = () => {
     // to make infinite scroll height maximum available
     <div
       className={cn([
-        'flex flex-col gap-8 w-full max-w-prose',
+        ' w-full max-w-prose',
         {
           ['h-[calc(100vh-theme(spacing.12)*2)]']: totalCount && totalCount > 0,
         },
       ])}
     >
-      <Input
-        name="login"
-        label="Логин GitHub"
-        placeholder="Введите логин для поиска репозиториев"
-        value={login}
-        onChange={e => setLogin(e.target.value)}
-      />
-      <div className={cn(['flex-1 min-h-0', {['[&>div]:h-full']: totalCount && totalCount > 0}])}>
-        <InfiniteScroll
+
+        <InfiniteScrollComponent
+          slots={{
+            top: (
+              <Input
+                name="login"
+                label="Логин GitHub"
+                placeholder="Введите логин для поиска репозиториев"
+                value={login}
+                onChange={e => setLogin(e.target.value)}
+              />
+            ),
+            bottom: (
+              <>
+                {isLoading && <Spinner className="mx-auto" />}
+                {nothingFoundMessage}
+              </>
+            ),
+          }}
           dataLength={repos?.length || 0}
           next={fetchMoreRepos}
           hasMore={hasNextPage || false}
@@ -118,10 +128,7 @@ export const ReposExplorer = () => {
               )}
             </div>
           )}
-        </InfiniteScroll>
-        {isLoading && <Spinner className="mx-auto" />}
-        {nothingFoundMessage}
+        </InfiniteScrollComponent>
       </div>
-    </div>
   );
 };
